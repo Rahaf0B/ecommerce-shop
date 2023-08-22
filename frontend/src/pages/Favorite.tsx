@@ -49,7 +49,10 @@ const Favorite = () => {
       });
   };
   useEffect(() => {
-    getData();
+    if(localStorage.getItem("token")!=null) {
+    getData();}else{
+        setError(true);
+    }
   }, []);
   return (
     <div>
