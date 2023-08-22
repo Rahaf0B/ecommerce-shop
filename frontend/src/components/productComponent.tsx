@@ -4,7 +4,7 @@ const ProductComponent = (props) => {
     <div className={"div-data-images-group-products" + " " + props["class"]}>
       {props["product"].map((value, index) => {
         return (
-          <div>
+          <div key={index}>
             <div className="div-single-info-product" key={index}>
               <img
                 className="div-single-img-product"

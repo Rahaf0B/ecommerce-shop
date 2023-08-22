@@ -28,7 +28,7 @@ export const HeaderMenu = () => {
                 return localStorage.getItem("login") == "true"  ? (
                   <a
                   onClick={handleLogOut}
-                  
+                  key={index}
                     aria-current="page"
                     className="navigation-single-item-menu-header"
                   >

@@ -19,6 +19,7 @@ const ProductInfo = () => {
   };
 
   const handleFavorite = () => {
+    if(localStorage.getItem("login") == "true"){
     const csrftoken = getCookie("csrftoken");
     const token = localStorage.getItem("token");
     var FavoriteProduct = [];
@@ -44,7 +45,7 @@ const ProductInfo = () => {
       localStorage.setItem("FavoriteProduct", JSON.stringify(FavoriteProduct));
 
       setAddFavorite(true);
-    }
+    }}
   };
 
   
@@ -55,7 +56,7 @@ const ProductInfo = () => {
         setProductToShow(res);
         setDataLoading(true);
         const storedList = localStorage.getItem("FavoriteProduct");
-        if(storedList.length!=0){
+        if(localStorage.getItem("login") == "true"){
         setAddFavorite(JSON.parse(storedList).includes(res["product"]["id"]));
     
     }  })
@@ -105,7 +106,7 @@ const ProductInfo = () => {
                   >
                     {"Select Color"}
                   </option>
-                  {productToShow["product_color"]?.map((option) => (
+                  {productToShow["product_color"]?.map((option,index) => (
                     <option
                       className="option-color-choice"
                       key={option["color_name"]}
