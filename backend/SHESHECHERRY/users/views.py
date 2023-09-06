@@ -30,7 +30,7 @@ class LoginAPIView(GenericAPIView):
         return response.Response({'message': 'Invalid credentials, try again'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-class RegisterNutritionistUserAPIView(GenericAPIView):
+class RegistertserAPIView(GenericAPIView):
     serializer_class = RegisterUserSerializer
 
     def post(self, request):
